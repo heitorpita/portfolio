@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Novo Projeto</title>
+  <link rel="stylesheet" href="novo-projeto.css">
+</head>
+<body>
+
+<div class="container form-container">
+
+  <div class="form-card">
+    <h1>Novo Projeto</h1>
+    <p class="muted">Adicione um novo projeto ao portfólio</p>
+
+    <form id="projectForm">
+
+      <label>Título *</label>
+      <input type="text" id="title" placeholder="Ex: E-commerce Platform" required>
+
+      <label>Descrição (opcional)</label>
+      <textarea id="description" placeholder="Breve descrição do projeto..."></textarea>
+
+      <label>URL da Imagem (opcional)</label>
+      <input type="url" id="imageUrl" placeholder="https://exemplo.com/imagem.jpg">
+
+      <label>Link do Repositório (opcional)</label>
+      <input type="url" id="repoLink" placeholder="https://github.com/usuario/projeto">
+
+      <div class="form-actions">
+        <a href="dashboard.html" class="btn outline">Cancelar</a>
+        <button type="submit" class="btn primary">Criar projeto</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById("projectForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const token = localStorage.getItem("token");
+    const newProject = {
+      nome: document.getElementById("title").value,
+      titulo: document.getElementById("title").value,
+      descricao: document.getElementById("description").value,
+      foto: document.getElementById("imageUrl").value,
+      imageUrl: document.getElementById("imageUrl").value,
+      repoLink: document.getElementById("repoLink").value
+    };
+
+    try {
+      const res = await fetch("http://localhost:3000/projetos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(newProject)
+      });
+      if (res.ok) {
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Erro ao criar projeto. Verifique se você está autenticado como admin.");
+      }
+    } catch (err) {
+      alert("Erro ao conectar com a API.");
+    }
+  });
+</script>
+
+</body>
+</html>
