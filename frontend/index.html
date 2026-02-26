@@ -1,89 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Heitor Pita</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container center">
-      <div class="badge">
-        <span class="dot"></span>
-        Disponível para projetos
-      </div>
-
-      <h1>Heitor <span class="primary">Pita</span></h1>
-
-      <p class="subtitle">
-        Uma coleção dos meus melhores projetos. Clique para explorar o código.
-      </p>
-
-<a href="login.html" class="btn-outline">
-  🔒 Área Admin
-</a>
-    </div>
-  </header>
-
-  <!-- PROJECTS -->
-  <main class="container projects-section">
-    <p class="projects-count" id="projectsCount">0 projetos no total</p>
-
-    <div class="grid" id="projectsGrid">
-      <!-- Projetos serão carregados via JS -->
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <span>© 2026 Portfólio. Todos os direitos reservados.</span>
-      <a href="https://github.com/heitorpita" target="_blank">GitHub</a>
-    </div>
-  </footer>
-
-<script>
-  async function carregarProjetosPublicos() {
-    try {
-      const res = await fetch("http://localhost:3000/projetos");
-      const projetos = await res.json();
-      const grid = document.getElementById("projectsGrid");
-      const count = document.getElementById("projectsCount");
-      grid.innerHTML = "";
-      if (Array.isArray(projetos) && projetos.length > 0) {
-        // Atualiza contador de projetos
-        count.textContent = `${projetos.length} projeto${projetos.length > 1 ? 's' : ''} no total`;
-        projetos.forEach(proj => {
-          const imgSrc = proj.imageUrl || proj.foto || '';
-          const titleText = proj.titulo || proj.nome || '';
-          grid.innerHTML += `
-            <article class='card'>
-              <div class='image'>
-                ${imgSrc ? `<img src='${imgSrc}' alt='${titleText}'>` : `<div class='image empty'>📁</div>`}
-              </div>
-              <div class='card-content'>
-                <h2>${titleText ? titleText : "Sem título"}</h2>
-                <p>${proj.descricao ? proj.descricao : "Sem descrição"}</p>
-                <div class='card-footer'>
-                  <span>${proj.dataCriacao ? new Date(proj.dataCriacao).toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' }) : ""}</span>
-                  ${(proj.repoLink || proj.repo) ? `<a href='${proj.repoLink || proj.repo}' target='_blank'>Ver repositório</a>` : `<span class='muted'>Sem repositório</span>`}
-                </div>
-              </div>
-            </article>
-          `;
-        });
-      } else {
-        count.textContent = "0 projetos no total";
-        grid.innerHTML = "<div class='muted'>Nenhum projeto cadastrado</div>";
-      }
-    } catch (e) {
-      document.getElementById("projectsGrid").innerHTML = "<div class='muted'>Erro ao carregar projetos</div>";
-      document.getElementById("projectsCount").textContent = "0 projetos no total";
-    }
-  }
-  window.onload = carregarProjetosPublicos;
-</script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

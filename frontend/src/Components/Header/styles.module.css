@@ -1,0 +1,32 @@
+.header {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: black;
+}
