@@ -1,19 +1,19 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 import styles from "./styles.module.css";
 
 function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <h1 className={styles.logo}>Heitor Pita</h1>
+        <Link to="/" className={styles.logo}>Heitor Pita</Link>
         <nav className={styles.nav}>
-          <a href="#projects">Projetos</a>
-          <a href="#resume">Resume</a>
-          <a href="#sitemap">Sitemap</a>
+          <Link to="/projects">Projects</Link>
+          <Link to="/resume">Resume</Link>
+          <Link to="/sitemap">Sitemap</Link>
         </nav>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

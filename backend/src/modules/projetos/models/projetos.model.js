@@ -40,6 +40,16 @@ const ProjetoModel = sequelize.define("Projeto", {
                 msg: "A URL da foto deve ter no máximo 500 caracteres"
             }
         }
+    },
+    link: {
+        type: DataTypes.STRING(500),
+        allowNull: true,
+        validate: {
+            len: {
+                args: [0, 500],
+                msg: "A URL do link deve ter no máximo 500 caracteres"
+            }
+        }
     }
 }, {
     tableName: "projetos",

@@ -1,0 +1,52 @@
+.footer {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  background-color: #f5f5f5;
+  padding: 32px 0 24px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.follow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.socials {
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #000;
+}
+
+.copy {
+  margin: 0;
+  font-size: 13px;
+  color: #999;
+}

@@ -29,14 +29,15 @@ export class ProjetosController {
 
     static async criar(req, res) {
         try {
-            const { nome, descricao, foto } = req.body;
+            const { nome, descricao, foto, link } = req.body;
             if (!nome) {
                 return res.status(400).json({ msg: "O nome do projeto é obrigatório" });
             }
             const projeto = await ProjetoModel.create({
                 nome,
                 descricao,
-                foto
+                foto,
+                link
             });
             res.status(201).json({ msg: "Projeto criado com sucesso!", projeto });
         } catch (error) {
@@ -47,7 +48,7 @@ export class ProjetosController {
     static async atualizar(req, res) {
         try {
             const { id } = req.params;
-            const { nome, descricao, foto } = req.body;
+            const { nome, descricao, foto, link } = req.body;
 
             const projeto = await ProjetoModel.findByPk(id);
             if (!projeto) {
@@ -58,6 +59,7 @@ export class ProjetosController {
             if (nome) dadosAtualizacao.nome = nome;
             if (descricao) dadosAtualizacao.descricao = descricao;
             if (foto) dadosAtualizacao.foto = foto;
+            if (link !== undefined) dadosAtualizacao.link = link;
 
             await projeto.update(dadosAtualizacao);
 

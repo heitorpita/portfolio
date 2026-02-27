@@ -1,6 +1,6 @@
-import React from 'react'
 import styles from "./styles.module.css";
 import Header from '../Components/Header/Header';
+import Footer from '../Components/Footer/Footer';
 import { Link } from 'react-router-dom';
 import resume from "../assets/HeitorPitaResume.pdf";
 import codigoIcon from "../assets/codigo.png";
@@ -75,6 +75,7 @@ function Main() {
         </div>
       </div>
 
+      <Footer />
     </div>
   )
 }

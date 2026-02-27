@@ -1,0 +1,90 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  width: 100%;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.section {
+  font-size: 16px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 40px;
+}
+
+.loading,
+.empty {
+  color: #888;
+  font-size: 15px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 2px solid #e0e0e0;
+  padding-left: 28px;
+}
+
+.item {
+  position: relative;
+  padding-bottom: 36px;
+}
+
+.dot {
+  position: absolute;
+  left: -35px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2c3e50;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #2c3e50;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.titulo {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.empresa {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.periodo {
+  font-size: 13px;
+  color: #999;
+}
+
+.descricao {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+}
